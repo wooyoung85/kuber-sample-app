@@ -10,14 +10,14 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class SentimentController {
 
-    @Value("${sa.logic.api.url}")
-    private String saLogicApiUrl;
+    @Value("${django_app.url}")
+    private String djangoAppUrl;
 
     @PostMapping("/sentiment")
     public SentimentDto sentimentAnalysis(@RequestBody SentenceDto sentenceDto) {
         RestTemplate restTemplate = new RestTemplate();
 
-        return restTemplate.getForObject(saLogicApiUrl + "/api/analysis?sentence="+ sentenceDto.getSentence(), SentimentDto.class);
+        return restTemplate.getForObject(djangoAppUrl + "/api/analysis?sentence="+ sentenceDto.getSentence(), SentimentDto.class);
     }
 
     @GetMapping("/testHealth")
@@ -25,5 +25,3 @@ public class SentimentController {
         return "Health Check";
     }
 }
-
-
