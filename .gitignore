@@ -10,3 +10,7 @@ migrations/
 target/
 .mvn/
 !**/maven-wrapper.jar
+
+# React App
+node_modules/
+**/react_app/build/
