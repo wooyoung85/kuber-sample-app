@@ -1,7 +1,12 @@
 .DS_Store
 .vscode/
 
-# django_app
+# Django App
 db.sqlite3
 __pycache__/
 migrations/
+
+# Spring Boot App
+target/
+.mvn/
+!**/maven-wrapper.jar
