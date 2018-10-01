@@ -3,6 +3,7 @@
 
 # Django App
 db.sqlite3
+dump.rdb
 __pycache__/
 migrations/
 
