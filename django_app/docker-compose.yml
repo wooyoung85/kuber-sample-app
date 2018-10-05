@@ -1,13 +1,13 @@
- version: '3'
+version: '3'
 
- services:
+services:
     django:
       build:
         context: .
         dockerfile: Dockerfile
       restart: always
       ports:
-      - "8000:8000"
+        - "8000:8000"
       depends_on:
         - redis
     worker:
@@ -15,6 +15,6 @@
         context: .
         dockerfile: Celery.Dockerfile
       depends_on:
-      - redis
+        - redis
     redis:
       image: redis
