@@ -20,7 +20,8 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        fetch('http://localhost:8080/sentiment', {
+        // spring-boot-lb 서비스에 대한 url을 넣어줘야 함
+        fetch('http://192.168.99.100:31525/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

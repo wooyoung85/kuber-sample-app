@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: django-app
+  labels:
+    deployment: django-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: django-app
+  template:
+    metadata:
+      labels:
+        pod: django-app
+    spec:
+      containers:
+        - name: django-app
+          image: wooyoung85/django_app
+          ports:
+            - containerPort: 8000
+          env:
+            - name: REDIS_HOST
+              value: redis-service

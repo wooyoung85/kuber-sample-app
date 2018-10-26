@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: spring-boot-app
+spec:
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+    spec:
+      containers:
+      - image: wooyoung85/springboot_app
+        imagePullPolicy: Always
+        name: spring-boot-app
+        env:
+          - name: DJANGO_APP_URL
+            value: "http://django-service"
+        ports:
+          - containerPort: 8080
